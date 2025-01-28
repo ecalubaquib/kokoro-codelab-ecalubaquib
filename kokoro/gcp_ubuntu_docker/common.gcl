@@ -1,3 +1,0 @@
-build = {
-   build_file = 'kokoro-codelab-ecalubaquib/kokoro/gcp_ubuntu_docker/kokoro_build.sh'
-}
