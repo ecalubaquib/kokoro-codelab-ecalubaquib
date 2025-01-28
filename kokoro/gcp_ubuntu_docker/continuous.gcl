@@ -1,4 +1,4 @@
-import '//experimental/users/ecalubaquib/basic-project/kokoro/gcp_ubuntu_docker/common.gcl' as common
+import '//kokoro/gcp_ubuntu_docker/common.gcl' as common
 
 config build = common.build {
    env_vars = [
