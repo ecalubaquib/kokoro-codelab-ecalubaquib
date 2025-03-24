@@ -19,7 +19,6 @@ jobs:
     timeout-minutes: 60
     if: |
       github.event.pull_request.user.type == 'Bot' ||
-      github.event.pull_request.user.type == 'Organization' ||
       contains(github.event.pull_request.labels.*.name, 'foo-only')
     steps:
       - uses: actions/checkout@v4
