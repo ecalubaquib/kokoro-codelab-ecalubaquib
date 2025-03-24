@@ -1,0 +1,29 @@
+name: "CI"
+on:
+  push:
+    branches:
+    - main
+  pull_request:
+    branches:
+    - main
+permissions:
+  contents: read
+  actions: write
+concurrency:
+  group: ${{ github.workflow }}-${{ github.head_ref || github.ref }}
+  cancel-in-progress: true
+jobs:
+  presubmit:
+    name: "foo"
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    if: |
+      github.event.pull_request.user.type == 'Bot' ||
+      github.event.pull_request.user.type == 'Organization' ||
+      contains(github.event.pull_request.labels.*.name, 'foo-only')
+    steps:
+      - uses: actions/checkout@v4
+      - name: run_hello_world
+        run: |
+          #!/bin/bash"
+          echo hello
